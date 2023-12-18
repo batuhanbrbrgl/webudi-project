@@ -16,12 +16,14 @@
     </div>
     <div class="block h-[100dvh] w-full lg:hidden">
       <video
-        class="h-full w-full object-cover"
-        loading="lazy"
-        loop
-        muted
-        autoplay
-      >
+      class="h-full w-full object-cover"
+      loading="lazy"
+      loop
+      muted
+      autoplay
+      playsinline
+      onclick="event.preventDefault()"
+    >
         <source src="/videos/mobile-video.mp4" type="video/mp4" />
         Your browser does not support the video tag.
       </video>

@@ -3,12 +3,14 @@
   <div class="relative">
     <div class="hidden h-[100dvh] w-full lg:block">
       <video
-        class="h-full w-full object-cover"
-        loading="lazy"
-        loop
-        muted
-        autoplay
-      >
+      class="h-full w-full object-cover"
+      loading="lazy"
+      loop
+      muted
+      autoplay
+      playsinline
+      onclick="event.preventDefault()"
+    >
         <source src="/videos/desktop-video.mp4" type="video/mp4" />
       </video>
     </div>

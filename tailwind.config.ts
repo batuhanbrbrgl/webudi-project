@@ -20,6 +20,7 @@ module.exports = {
         sans: ["Rubik", "sans-serif"],
         body: ["Rubik", "sans-serif"],
         mont: ["Rubik", "sans-serif"],
+        dosis: ["Dosis", "sans-serif"],
       },
       container: {
         padding: {
@@ -38,12 +39,7 @@ module.exports = {
       boxShadow: {
         card: "0px 20px 50px rgba(61, 121, 253, 0.1)",
       },
-      colors: {
-        black1: "#11174A",
-        blue1: "#4C67F3",
-        background1: "#F2F4F9",
-        txt1: "#5A5C6A",
-      },
+     
       screens: {
         "3xs": "320px",
         "2xs": "375px",

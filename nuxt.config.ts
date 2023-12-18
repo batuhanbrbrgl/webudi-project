@@ -2,6 +2,10 @@ import * as fs from "fs";
 const isSecure = fs.existsSync("./ssl.key");
 // https://nuxt.com/docs/api/configuration/nuxt-config
 export default defineNuxtConfig({
+  pages : true,
+  supabase: {
+    redirect: false
+  },
   googleFonts: {
     preconnect: true,
     download: true,
@@ -12,13 +16,23 @@ export default defineNuxtConfig({
       Rubik: {
         wght: [300, 400, 500, 600, 700, 800, 900],
       },
+      Dosis: {
+        wght: [200, 300, 400, 500, 600, 700, 800],
+      },
     },
   },
   modules: [
+    "nuxt-icon",
+    "nuxt-lodash",
+    "@nuxtjs/supabase",
+    "@pinia/nuxt",
+    "@pinia-plugin-persistedstate/nuxt",
     "@nuxtjs/tailwindcss",
     "@nuxtjs/google-fonts",
     "nuxt-icon",
     "@nuxt/image-edge",
+    "@nuxt/image",
+
   ],
   tailwindcss: {
     // Options
@@ -27,9 +41,22 @@ export default defineNuxtConfig({
     shim: false,
     strict: true,
   },
+  runtimeConfig: {
+    public:{
+      stripePk: process.env.STRIPE_KEY,
+    }
+   
+  },
+ 
   app: {
     head: {
-      titleTemplate: "%s - Richardson & Co.",
+      script: [
+        {
+          src: "https://js.stripe.com/v3/",
+          defer: true,
+        },
+      ],
+      titleTemplate: "Batushop",
       meta: [
         {
           name: "msapplication-TileColor",
@@ -40,21 +67,21 @@ export default defineNuxtConfig({
           content: "#ffffff",
         },
         {
-          name: "description",
+          name: "Webudi",
           content:
             "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.",
         },
         {
           property: "og:url",
-          content: "",
+          content: "webudi.vercel.app",
         },
         {
           property: "og:type",
-          content: "website",
+          content: "webudi.vercel.app",
         },
         {
           property: "og:title",
-          content: "Lorem",
+          content: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.",
         },
         {
           property: "og:description",
@@ -71,11 +98,11 @@ export default defineNuxtConfig({
         },
         {
           property: "twitter:domain",
-          content: "",
+          content: "webudi.vercel.app",
         },
         {
           property: "twitter:url",
-          content: "",
+          content: "webudi.vercel.app",
         },
         {
           name: "twitter:title",
@@ -83,7 +110,7 @@ export default defineNuxtConfig({
         },
         {
           name: "twitter:site",
-          content: "",
+          content: "webudi.vercel.app",
         },
        
         {
@@ -93,7 +120,7 @@ export default defineNuxtConfig({
         },
         {
           name: "twitter:image",
-          content: "",
+          content: "webudi.vercel.app",
         },
       ],
       link: [
@@ -101,19 +128,18 @@ export default defineNuxtConfig({
           rel: "icon",
           type: "image/png",
           sizes: "32x32",
-          href: "favicon/favicon-32x32.png",
+          href: "favicon-32x32.png",
         },
         {
           rel: "icon",
           type: "image/png",
           sizes: "16x16",
-          href: "favicon/favicon-16x16.png",
+          href: "favicon-16x16.png",
         },
-        { rel: "manifest", href: "favicon/site.webmanifest" },
         {
           rel: "apple-touch-icon",
           sizes: "180x180",
-          href: "favicon/apple-touch-icon.png",
+          href: "apple-touch-icon.png",
         },
       ],
     },

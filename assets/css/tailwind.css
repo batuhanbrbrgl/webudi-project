@@ -1,7 +1,61 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
-
-body {
-  background-color: #f2f4f9;
+@layer components {
+    .outline-primary {
+        @apply outline-none focus:outline-primary bg-primary/40;
+    }
+    bg-primary{
+        background-color: rgba(0, 0, 0, 0.04);
+    }
+  }
+@layer base {
+    html {
+        @apply scroll-smooth;
+    }
+    body {
+        @apply font-body;
+    }
+    :root {
+        --popper-theme-background-color: #333333;
+        --popper-theme-background-color-hover: #333333;
+        --popper-theme-text-color: #ffffff;
+        --popper-theme-border-width: 0px;
+        --popper-theme-border-style: solid;
+        --popper-theme-border-radius: 6px;
+        --popper-theme-padding: 16px;
+        --popper-theme-box-shadow: 0 6px 30px -6px rgba(0, 0, 0, 0.25);
+    }
 }
+
+@layer utilities {
+    .buttonbgsticks {
+        @apply before:absolute before:-top-10 before:left-[-110px] before:z-0 before:h-48 before:w-6 before:skew-x-[-45deg] before:skew-y-[45deg] before:transform  before:bg-light-green before:content-[''] after:absolute after:-bottom-2 after:left-[69px] after:z-0 after:h-48 after:w-6 after:skew-x-[-45deg]  after:skew-y-[45deg]  after:bg-light-green after:content-[''];
+    }
+    .soon-box {
+        @apply absolute bottom-full left-full flex h-4 -translate-x-4 translate-y-1 select-none items-center justify-center rounded-md rounded-bl-none bg-beige p-1 text-[9px] font-bold text-main-green;
+    }
+    .soon-box-second {
+        @apply absolute bottom-full left-full flex h-4 -translate-x-4 translate-y-1 select-none items-center justify-center rounded-md rounded-bl-none bg-beige p-1 text-[9px] font-bold text-black;
+    }
+    .blue-button {
+        @apply w-full cursor-pointer select-none items-center justify-center rounded-lg border border-transparent bg-main-green p-3 text-center text-xs font-bold text-white transition-colors duration-300 hover:border-main-green hover:bg-white hover:text-main-green lg:p-3 lg:text-sm;
+    }
+    .white-button {
+        @apply w-full cursor-pointer select-none items-center justify-center rounded-lg border border-transparent  bg-white p-3 text-center text-base font-bold text-gray transition-colors duration-300 hover:border-main-green hover:text-main-green;
+    }
+    .red-button {
+        @apply w-full cursor-pointer select-none items-center justify-center rounded-lg border border-transparent bg-danger px-2 py-1 text-center text-xs font-bold text-white transition-colors duration-300 hover:border-danger hover:bg-white hover:text-danger   lg:text-sm;
+    }
+    .register-white-button {
+        @apply w-full select-none items-center justify-center rounded-lg border border-transparent bg-white  p-3 text-center text-xs font-bold text-main-green transition-colors duration-300 hover:border-main-green hover:text-main-green lg:text-sm;
+    }
+    .trade-input {
+        @apply flex h-12 flex-1 select-none items-center justify-center rounded-lg border border-white-background bg-background px-4 py-3 text-center font-semibold text-gray outline-none transition placeholder:text-center focus:border-2 focus:border-main-green focus:ring-0;
+    }
+    .trade-tabs {
+        @apply flex flex-1 select-none items-center justify-center border border-white-background bg-background px-4 py-3 text-center font-semibold text-gray;
+    }
+}
+
+

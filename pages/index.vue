@@ -1,25 +1,15 @@
-<script setup lang="ts">
-const investmentTitle = "Investment Power of<br>Togetherness";
-definePageMeta({
-  title: "Home",
-});
-useHead({
-  title: "Home",
-});
-
+<script setup>
+import MainLayout from "~/layouts/MainLayout.vue";
 </script>
+
 <template>
-  <div class="">
-    <Hero :text="investmentTitle" image="/images/Index.png" />
-    <HomeSolutionAndPower />
-    <HomeActivityFields />
+  <div id="IndexPage" class="">
+    <MainLayout>
+      <Hero />
+      <Services />
+      <Home />
+    </MainLayout>
   </div>
 </template>
-<style scoped lang="scss">
-.test {
-  color: red;
-  span {
-    @apply text-blue-500;
-  }
-}
-</style>
+
+<style scoped lang="scss"></style>

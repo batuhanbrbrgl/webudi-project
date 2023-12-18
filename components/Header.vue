@@ -20,7 +20,9 @@ async function logout() {
     const { error } = await client.auth.signOut();
     if (error) throw error;
     router.push("/login");
-    toast("Exit was successful.", { autoClose: 3000, type: "success" });
+     setTimeout(() => {
+      toast("Exit was successful", { autoClose: 3000, type: "success" });
+    }, 3000);
   } catch (error) {}
 }
 onMounted(() => {

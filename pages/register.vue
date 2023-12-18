@@ -18,9 +18,13 @@ async function signUp() {
       password: password.value,
     });
     if (error) throw error;
-    successMsg.value = "Check your email for the confirmation link.";
-    toast(successMsg.value, { autoClose: 3000, type: "success" });
     router.push("/login");
+    setTimeout(() => {
+      successMsg.value = "Check your email for the confirmation link.";
+    toast(successMsg.value, { autoClose: 3000, type: "success" });
+    }, 3000);
+   
+   
   } catch (error) {
     errorMsg.value = error.message;
     console.error(error);

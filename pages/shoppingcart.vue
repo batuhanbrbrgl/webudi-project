@@ -9,7 +9,6 @@ let cartItems = userStore.cart;
 
 const acceptedTerms = ref(false);
 const router = useRouter();
-let selectedArray = ref([]);
 
 onMounted(() => {
   setTimeout(() => (userStore.isLoading = false), 200);

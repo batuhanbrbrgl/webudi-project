@@ -45,7 +45,6 @@
     "@prisma/client": "^5.7.0",
     "@stripe/stripe-js": "^2.2.1",
     "i": "^0.3.7",
-    "mosha-vue-toastify": "^1.0.23",
     "nuxt-lodash": "^2.5.3",
     "nuxt-stripe-module": "^3.2.0",
     "nuxt-ts": "^2.8.1",

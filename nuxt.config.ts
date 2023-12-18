@@ -73,7 +73,7 @@ export default defineNuxtConfig({
         },
         {
           property: "og:url",
-          content: "webudi-vercel.app",
+          content: "webudi-project.vercel.app",
         },
         {
           property: "og:type",
@@ -98,11 +98,11 @@ export default defineNuxtConfig({
         },
         {
           property: "twitter:domain",
-          content: "webudi.vercel.app",
+          content: "webudi-project.vercel.app",
         },
         {
           property: "twitter:url",
-          content: "webudi-vercel.app",
+          content: "webudi-project.vercel.app",
         },
         {
           name: "twitter:title",
@@ -110,7 +110,7 @@ export default defineNuxtConfig({
         },
         {
           name: "twitter:site",
-          content: "webudi-vercel.app",
+          content: "webudi-project.vercel.app",
         },
        
         {
@@ -120,7 +120,7 @@ export default defineNuxtConfig({
         },
         {
           name: "twitter:image",
-          content: "webudi-vercel.app",
+          content: "webudi-project.vercel.app",
         },
       ],
       link: [

@@ -1,7 +1,8 @@
 <script setup lang="ts">
 import { useUserStore } from "~/stores/user";
 import { computed } from "vue";
-import showToast from "~/composables/vue3-toastify";
+import { toast } from 'vue3-toastify';
+import 'vue3-toastify/dist/index.css';
 const userStore = useUserStore();
 const user = useSupabaseUser();
 const client = useSupabaseClient();
@@ -19,7 +20,7 @@ async function logout() {
     const { error } = await client.auth.signOut();
     if (error) throw error;
     router.push("/login");
-    showToast("Exit was successful.", "success");
+    toast("Exit was successful.", { autoClose: 3000, type: "success" });
   } catch (error) {}
 }
 onMounted(() => {

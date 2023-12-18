@@ -1,8 +1,8 @@
 <script setup lang="ts">
 import { useUserStore } from "~/stores/user";
 import { defineProps, toRefs, computed } from "vue";
-import "mosha-vue-toastify/dist/style.css";
-import showToast from "~/composables/vue3-toastify";
+import { toast } from 'vue3-toastify';
+import 'vue3-toastify/dist/index.css';
 const props = defineProps<{
   product: {
     id: number;
@@ -19,17 +19,9 @@ const userStore = useUserStore();
 
 const addToCart = () => {
   userStore.cart.push(product.value);
-  showToast("Product added to cart.", "success");
+  toast("Product added to cart.", { autoClose: 2000, type: "success" });
 };
-const setToZero = () => {
-  const index = userStore.cart.findIndex(
-    (item) => item.id === product.value.id
-  );
-  if (index !== -1) {
-    userStore.cart[index].count = 0;
-  }
-  showToast("Product removed from cart.", "success");
-};
+
 
 const removeFromCart = () => {
   const index = userStore.cart.findIndex(
@@ -38,7 +30,7 @@ const removeFromCart = () => {
   if (index !== -1) {
     userStore.cart.splice(index, 1);
   }
-  showToast("Product removed from cart.", "success");
+  toast("Product removed from cart.", { autoClose: 2000, type: "success" });
 };
 
 const countInCart = computed(() => {
@@ -53,6 +45,7 @@ const oldPriceComputed = computed(() => {
   let res = product.value.price + product.value.price * 0.2;
   return res.toFixed(2);
 });
+
 </script>
 
 <template>
@@ -117,7 +110,7 @@ const oldPriceComputed = computed(() => {
         >
           {{ product.category }}
         </NuxtLink>
-        <div
+      <div
           class="top-1 z-50 mt-3 flex h-10 flex-row items-center justify-center rounded-b-lg bg-gray-500 text-center hover:text-gray-200"
         >
           <div class="flex">
@@ -148,7 +141,7 @@ const oldPriceComputed = computed(() => {
             </div>
             <div v-else class="flex flex-col space-x-4 text-center">
               <Icon
-                class="w-full rounded-xl p-1 duration-300 hover:bg-gray-400"
+                class="w-full rounded-xl cursor-pointer p-1 duration-300 hover:bg-gray-400"
                 name="ph:basket"
                 color="#fff"
                 size="30"

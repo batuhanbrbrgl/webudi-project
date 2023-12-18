@@ -1,6 +1,7 @@
 <script setup>
 import { useSupabase } from "vue-3-supabase";
-import showToast from "~/composables/vue3-toastify";
+import { toast } from 'vue3-toastify';
+import 'vue3-toastify/dist/index.css';
 import MainLayout from "~/layouts/MainLayout.vue";
 
 const client = useSupabaseClient();
@@ -18,13 +19,14 @@ async function signUp() {
     });
     if (error) throw error;
     successMsg.value = "Check your email for the confirmation link.";
-    showToast(successMsg.value, "success");
+    toast(successMsg.value, { autoClose: 3000, type: "success" });
     router.push("/login");
   } catch (error) {
     errorMsg.value = error.message;
     console.error(error);
   }
 }
+
 </script>
 <template>
   <MainLayout>

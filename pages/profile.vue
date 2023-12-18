@@ -3,7 +3,6 @@ import { ref, computed, onMounted } from "vue";
 import { useRouter } from "vue-router";
 import MainLayout from "~/layouts/MainLayout.vue";
 import "mosha-vue-toastify/dist/style.css";
-import showToast from "~/composables/vue3-toastify";
 
 const user = useSupabaseUser();
 const client = useSupabaseClient();
@@ -15,7 +14,7 @@ const confirmPassword = ref("");
 
 async function changePassword() {
   if (newPassword.value !== confirmPassword.value) {
-    showToast("Yeni şifreler eşleşmiyor.", "danger");
+    toast.error("New passwords do not match.", { autoClose: 3000 });
     return;
   }
 
@@ -24,12 +23,13 @@ async function changePassword() {
       password: newPassword.value,
     });
     if (error) throw error.message || error.data.message;
-    showToast("Şifre başarıyla değiştirildi.", "success");
+    toast("Şifre başarıyla değiştirildi.", { autoClose: 3000, type: "success" });
     logout();
     router.push("/login");
   } catch (error) {
     console.error(error);
-    showToast("Şifre değiştirme sırasında bir hata oluştu.", "danger");
+    toast.error("Şifre değiştirme sırasında bir hata oluştu.", { autoClose: 3000 });
+    
   }
 }
 
@@ -37,11 +37,11 @@ async function logout() {
   try {
     const { error } = await client.auth.signOut();
     if (error) throw error.message || error.data.message;
-    showToast("Çıkış başarıyla gerçekleştirildi.", "success");
+    toast.error("Çıkış başarıyla gerçekleştirildi", { autoClose: 3000, type: "success" });
     router.push("/login");
   } catch (error) {
     console.error(error);
-    showToast("Çıkış sırasında bir hata oluştu.", "danger");
+    toast.error("Çıkış sırasında bir hata oluştu.", { autoClose: 3000 });
   }
 }
 onMounted(() => {
@@ -49,6 +49,7 @@ onMounted(() => {
     router.push("/login");
   }
 });
+
 </script>
 
 <template>

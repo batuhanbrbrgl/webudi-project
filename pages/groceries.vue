@@ -14,6 +14,7 @@ onMounted(async () => {
 setTimeout(() => {
   isLoading.value = false;
 }, 1000);
+
 </script>
 
 <template>

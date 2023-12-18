@@ -1,8 +1,8 @@
 <script setup lang="ts">
 import { defineProps, defineEmits, ref, reactive, computed } from "vue";
 import { useUserStore } from "~/stores/user";
-import "mosha-vue-toastify/dist/style.css";
-import showToast from "~/composables/vue3-toastify";
+import { toast } from 'vue3-toastify';
+import 'vue3-toastify/dist/index.css';
 const userStore = useUserStore();
 
 const props = defineProps<{
@@ -20,7 +20,7 @@ const cart = reactive(userStore.cart);
 
 const addToCart = () => {
   cart.push(product.value);
-  showToast("The product has been added.", "success");
+  toast("The product has been added.", { autoClose: 3000, type: "success" });
 };
 
 const removeFromCart = () => {
@@ -28,7 +28,7 @@ const removeFromCart = () => {
   if (index !== -1) {
     cart.splice(index, 1);
   }
-  showToast("The product has been deleted.", "success");
+  toast("The product has been deleted.", { autoClose: 3000, type: "success" });
 };
 
 const countInCart = computed(() => {
@@ -41,8 +41,9 @@ const deleteAllItems = () => {
       i--;
     }
   }
-  showToast("The product has been removed.", "success");
+  toast("The product has been removed.", { autoClose: 3000, type: "success" });
 };
+
 </script>
 
 <template>

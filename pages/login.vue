@@ -1,11 +1,12 @@
 <script setup>
-import showToast from "~/composables/vue3-toastify";
+import { toast } from 'vue3-toastify';
 import MainLayout from "~/layouts/MainLayout.vue";
 const router = useRouter();
 const client = useSupabaseClient();
 const email = ref("");
 const password = ref(null);
 const errorMsg = ref(null);
+import 'vue3-toastify/dist/index.css';
 
 async function signIn() {
   try {
@@ -15,12 +16,15 @@ async function signIn() {
     });
     if (error) throw error;
     router.push("/");
-    showToast("Login successful", "success");
+    setTimeout(() => {
+      toast("Login successful", { autoClose: 3000, type: "success" });
+    }, 4000);
   } catch (error) {
     errorMsg.value = error.message;
-    showToast("Your username or password is incorrect.", "danger");
+    toast.error("Your username or password is incorrect", { autoClose: 3000 });
   }
 }
+
 </script>
 <template>
   <MainLayout>

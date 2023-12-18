@@ -5,7 +5,7 @@ export const useUserStore = defineStore("user", {
   state: () => ({
     isMenuOverlay: false,
     isLoading: false,
-    cart: [],
+    cart: typeof window !== 'undefined' ? JSON.parse(localStorage.getItem('cart')) || [] : [],
     checkout: [],
     products: [],
     smartphones: [],

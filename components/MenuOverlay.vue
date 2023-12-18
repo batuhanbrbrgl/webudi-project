@@ -1,8 +1,8 @@
 <script setup>
 import { useUserStore } from "~/stores/user";
 import { computed } from "vue";
-import showToast from "~/composables/vue3-toastify";
-import "mosha-vue-toastify/dist/style.css";
+import { toast } from 'vue3-toastify';
+import 'vue3-toastify/dist/index.css';
 const userStore = useUserStore();
 const showElectronicMenu = ref(false);
 const showCosmeticMenu = ref(false);
@@ -45,7 +45,7 @@ const toggleCosmeticMenu = () => {
 
 const signOut = () => {
   client.auth.signOut();
-  showToast("The exit was carried out successfully.", "success");
+  toast("The exit was carried out successfully.", { autoClose: 3000, type: "success" });
   userStore.isMenuOverlay = false;
   return navigateTo("/");
 };

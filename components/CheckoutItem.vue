@@ -10,6 +10,7 @@ const props = defineProps<{
     price: number;
   };
 }>();
+
 </script>
 <template>
   <div class="my-2 flex justify-start">

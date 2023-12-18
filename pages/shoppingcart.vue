@@ -1,7 +1,8 @@
 <script setup lang="ts">
 import { useUserStore } from "~/stores/user";
 import MainLayout from "~/layouts/MainLayout.vue";
-import showToast from "~/composables/vue3-toastify";
+import { toast } from 'vue3-toastify';
+import 'vue3-toastify/dist/index.css';
 
 const userStore = useUserStore();
 let cartItems = userStore.cart;
@@ -22,20 +23,7 @@ const totalPriceComputed = computed(() => {
   return price;
 });
 
-const selectedRadioFunc = (e) => {
-  if (!selectedArray.value.length) {
-    selectedArray.value.push(e);
-    return;
-  }
 
-  selectedArray.value.forEach((item, index) => {
-    if (e.id != item.id) {
-      selectedArray.value.push(e);
-    } else {
-      selectedArray.value.splice(index, 1);
-    }
-  });
-};
 const uniqueProducts = computed(() => {
   return Array.from(new Set(cartItems.map((item) => item.id))).map(
     (productId) => {
@@ -50,14 +38,17 @@ const uniqueProducts = computed(() => {
 
 const deleteAllItems = () => {
   cartItems.splice(0, cartItems.length);
-  showToast("Your Basket has Been Emptied.", "success");
+  toast("Your Basket has Been Emptied.", { autoClose: 3000, type: "success" });
   router.push("/");
 };
 const checkout = () => {
   cartItems.splice(0, cartItems.length);
-  showToast("Your pay has been Received.", "success");
   router.push("/");
+  setTimeout(() => {
+      toast("Your pay has been Received.", { autoClose: 3000, type: "success" });
+    }, 3000);
 };
+
 </script>
 
 <template>

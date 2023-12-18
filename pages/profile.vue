@@ -2,6 +2,8 @@
 import { ref, computed, onMounted } from "vue";
 import { useRouter } from "vue-router";
 import MainLayout from "~/layouts/MainLayout.vue";
+import { toast } from 'vue3-toastify';
+import 'vue3-toastify/dist/index.css';
 
 const user = useSupabaseUser();
 const client = useSupabaseClient();
@@ -22,13 +24,19 @@ async function changePassword() {
       password: newPassword.value,
     });
     if (error) throw error.message || error.data.message;
-    toast("Şifre başarıyla değiştirildi.", { autoClose: 3000, type: "success" });
     logout();
     router.push("/login");
+    setTimeout(() => {
+    
+    toast("Şifre başarıyla değiştirildi.", { autoClose: 3000, type: "success" });
+    }, 3000);
+   
   } catch (error) {
     console.error(error);
-    toast.error("Şifre değiştirme sırasında bir hata oluştu.", { autoClose: 3000 });
+    setTimeout(() => {
     
+    toast.error("An error occurred while changing the password.", { autoClose: 3000 });
+    }, 3000);
   }
 }
 

@@ -1,4 +1,5 @@
-import { createToast } from "mosha-vue-toastify";
+import pkg from 'mosha-vue-toastify';
+const { createToast } = pkg;
 
 export default function showToast(message, type = "danger") {
   const backgroundColor = type === "success" ? "#013220 " : "#520000";

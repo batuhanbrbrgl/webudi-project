@@ -1,5 +1,4 @@
-import pkg from 'mosha-vue-toastify';
-const { createToast } = pkg;
+import { createToast } from "mosha-vue-toastify";
 
 export default function showToast(message, type = "danger") {
   const backgroundColor = type === "success" ? "#013220 " : "#520000";
@@ -10,7 +9,6 @@ export default function showToast(message, type = "danger") {
     },
     {
       type,
-      description: message,
       position: "bottom-left",
       transition: "slide",
       hideProgressBar: true,

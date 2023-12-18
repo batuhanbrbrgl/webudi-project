@@ -1,7 +1,6 @@
 <script setup>
 import { useUserStore } from "~/stores/user";
 import { computed } from "vue";
-import "mosha-vue-toastify/dist/style.css";
 import showToast from "~/composables/vue3-toastify";
 const userStore = useUserStore();
 const showElectronicMenu = ref(false);

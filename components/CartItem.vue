@@ -1,7 +1,6 @@
 <script setup lang="ts">
 import { defineProps, defineEmits, ref, reactive, computed } from "vue";
 import { useUserStore } from "~/stores/user";
-import "mosha-vue-toastify/dist/style.css";
 import showToast from "~/composables/vue3-toastify";
 const userStore = useUserStore();
 

@@ -2,7 +2,6 @@
 import { ref, computed, onMounted } from "vue";
 import { useRouter } from "vue-router";
 import MainLayout from "~/layouts/MainLayout.vue";
-import "mosha-vue-toastify/dist/style.css";
 import showToast from "~/composables/vue3-toastify";
 
 const user = useSupabaseUser();

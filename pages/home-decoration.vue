@@ -21,7 +21,7 @@ onMounted(async () => {
   <MainLayout>
     <div class="relative mt-[91px]">
       <img
-        class="my-7 h-[90px] w-full object-cover lg:my-0 lg:h-[337px]"
+        class="my-7 h-[150px]  w-full object-cover lg:my-0 lg:h-[337px]"
         src="/home-decoration.png"
         alt=""
       />

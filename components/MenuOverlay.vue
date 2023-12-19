@@ -17,7 +17,7 @@ const goTo = (url) => {
 
 const goToElectronic = () => {
   userStore.isMenuOverlay = false;
-  return navigateTo("/electronic");
+  return navigateTo("/electronics");
 };
 
 const goToCosmetics = () => {
@@ -33,6 +33,15 @@ const goToSmartphones = () => {
 const goToLaptops = () => {
   userStore.isMenuOverlay = false;
   return navigateTo("/laptops");
+};
+
+const goToFragrances = () => {
+  userStore.isMenuOverlay = false;
+  return navigateTo("/fragrances");
+};
+const goToSkincare = () => {
+  userStore.isMenuOverlay = false;
+  return navigateTo("/skincare");
 };
 
 const toggleElectronicMenu = () => {
@@ -135,13 +144,13 @@ const signIn = () => {
 
         <ul v-if="showCosmeticMenu">
           <li
-            @click="goToSmartphones"
+            @click="goToFragrances"
             class="relative flex cursor-pointer items-center justify-between border-b px-8 py-2.5 hover:bg-gray-100"
           >
             Fragrances
           </li>
           <li
-            @click="goToLaptops"
+            @click="goToSkincare"
             class="relative flex cursor-pointer items-center justify-between border-b px-8 py-2.5 hover:bg-gray-100"
           >
             Skincare

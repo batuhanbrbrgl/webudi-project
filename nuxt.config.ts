@@ -69,7 +69,7 @@ export default defineNuxtConfig({
         {
           name: "Webudi",
           content:
-            "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.",
+            "Webudi Batuhan Berberoğlu Project.",
         },
         {
           property: "og:url",
@@ -77,20 +77,20 @@ export default defineNuxtConfig({
         },
         {
           property: "og:type",
-          content: "webudi-vercel.app",
+          content: "webudi-project.vercel.app",
         },
         {
           property: "og:title",
-          content: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.",
+          content: "Webudi",
         },
         {
           property: "og:description",
           content:
-            "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.",
+            "Webudi Batuhan Berberoğlu Project.",
         },
         {
           property: "og:image",
-          content: "",
+          content: "https://webudi-project.vercel.app/og-image.png",
         },
         {
           name: "twitter:card",

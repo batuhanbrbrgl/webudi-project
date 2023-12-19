@@ -6,7 +6,7 @@ const footermenu = [
   },
   {
     name: "Electronic",
-    path: "/electronic",
+    path: "/electronics",
   },
   {
     name: "Cosmetic",
